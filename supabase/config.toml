@@ -1,1 +1,4 @@
 project_id = "rthwycmmitdiskwbirxw"
+
+[functions.chat]
+verify_jwt = true
