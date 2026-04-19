@@ -63,6 +63,22 @@ function AuthPage() {
     }
   }
 
+  async function onGoogle() {
+    setBusy(true);
+    try {
+      const result = await lovable.auth.signInWithOAuth("google", {
+        redirect_uri: `${window.location.origin}/chat`,
+      });
+      if (result.error) throw result.error;
+      if (result.redirected) return;
+      navigate({ to: "/chat" });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Google sign-in failed";
+      toast.error(msg);
+      setBusy(false);
+    }
+  }
+
   return (
     <main
       className="min-h-screen px-4 py-10"
