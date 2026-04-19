@@ -16,7 +16,6 @@ import {
   Menu,
   X,
   Bot,
-  User as UserIcon,
 } from "lucide-react";
 
 export const Route = createFileRoute("/chat")({
